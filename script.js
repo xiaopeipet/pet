@@ -61,6 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
     bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Show loading state
+        const submitBtn = bookingForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '提交中...';
+        submitBtn.disabled = true;
+        
         // Get form data
         const formData = new FormData(bookingForm);
         const bookingData = {};
@@ -71,11 +77,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Log booking data (in production, this would be sent to a server)
         console.log('Booking submitted:', bookingData);
         
-        // Show success modal
-        showModal();
-        
-        // Reset form
-        bookingForm.reset();
+        // Simulate async submission
+        setTimeout(() => {
+            // Show success modal
+            showModal();
+            
+            // Reset form and button
+            bookingForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 1000);
     });
 
     // Modal functions
@@ -99,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', function(e) {
         // Allow only numbers and common phone characters
-        this.value = this.value.replace(/[^0-9-]/g, '');
+        this.value = this.value.replace(/[^0-9()+\s-]/g, '');
     });
 
     // Add smooth scrolling for all anchor links
@@ -114,30 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-    });
-
-    // Add loading animation for form submission
-    bookingForm.addEventListener('submit', function() {
-        const submitBtn = bookingForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = '提交中...';
-        submitBtn.disabled = true;
-        
-        setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 1000);
-    });
-
-    // Add hover effect for service cards
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) scale(1.02)';
-        });
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
     });
 
     // Add animation on scroll (for cards)
