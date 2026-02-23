@@ -24,7 +24,21 @@ layout: default
                 </time>
             </header>
 
-            <div class="post-body">
+            <div class="tts-bar">
+                <button id="tts-btn" class="tts-btn" aria-label="朗读文章">
+                    <span class="tts-icon">🔊</span>
+                    <span class="tts-label">朗读</span>
+                </button>
+                <div class="tts-progress" aria-hidden="true">
+                    <div class="tts-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <span class="tts-status"></span>
+                </div>
+                <button id="tts-stop-btn" class="tts-stop-btn" aria-label="停止朗读" style="display:none">■ 停止</button>
+            </div>
+
+            <div class="post-body" id="post-body-content">
                 {{ content }}
             </div>
 

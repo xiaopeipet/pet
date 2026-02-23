@@ -180,6 +180,111 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
+    // TTS (Text-to-Speech) for post pages using Web Speech API (Edge neural voices)
+    const ttsBtn = document.getElementById('tts-btn');
+    if (ttsBtn && 'speechSynthesis' in window) {
+        const ttsStopBtn = document.getElementById('tts-stop-btn');
+        const ttsWave    = document.querySelector('.tts-wave');
+        const ttsStatus  = document.querySelector('.tts-status');
+        const ttsLabel   = ttsBtn.querySelector('.tts-label');
+        const ttsIcon    = ttsBtn.querySelector('.tts-icon');
+        let   utterance  = null;
+        let   isPaused   = false;
+
+        function getArticleText() {
+            const body = document.getElementById('post-body-content');
+            return body ? body.innerText.trim() : '';
+        }
+
+        function setPlayingState() {
+            ttsIcon.textContent  = '⏸';
+            ttsLabel.textContent = '暂停';
+            ttsWave.classList.add('active');
+            ttsStopBtn.style.display = '';
+            ttsStatus.textContent    = '正在朗读…';
+            isPaused = false;
+        }
+
+        function setPausedState() {
+            ttsIcon.textContent  = '▶';
+            ttsLabel.textContent = '继续';
+            ttsWave.classList.remove('active');
+            ttsStatus.textContent = '已暂停';
+            isPaused = true;
+        }
+
+        function setIdleState() {
+            ttsIcon.textContent  = '🔊';
+            ttsLabel.textContent = '朗读';
+            ttsWave.classList.remove('active');
+            ttsStopBtn.style.display = 'none';
+            ttsStatus.textContent    = '';
+            isPaused = false;
+            utterance = null;
+        }
+
+        function pickChineseVoice() {
+            const voices = window.speechSynthesis.getVoices();
+            // Prefer Microsoft neural Chinese voices (Edge TTS)
+            return voices.find(v => v.lang === 'zh-CN' && v.name.includes('Microsoft')) ||
+                   voices.find(v => v.lang === 'zh-CN') ||
+                   voices.find(v => v.lang.startsWith('zh')) ||
+                   null;
+        }
+
+        function startReading() {
+            window.speechSynthesis.cancel();
+            const text = getArticleText();
+            if (!text) return;
+            utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1.0;
+            utterance.lang = 'zh-CN';
+            const voice = pickChineseVoice();
+            if (voice) utterance.voice = voice;
+            utterance.onstart  = setPlayingState;
+            utterance.onend    = setIdleState;
+            utterance.onerror  = setIdleState;
+            utterance.onpause  = setPausedState;
+            utterance.onresume = setPlayingState;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        ttsBtn.addEventListener('click', function() {
+            if (!utterance && !isPaused) {
+                // Voices may not be loaded yet; wait for them if needed
+                const voices = window.speechSynthesis.getVoices();
+                if (voices.length === 0 && 'onvoiceschanged' in window.speechSynthesis) {
+                    window.speechSynthesis.addEventListener('voiceschanged', startReading, { once: true });
+                } else {
+                    startReading();
+                }
+            } else if (isPaused) {
+                window.speechSynthesis.resume();
+            } else {
+                // Directly update UI as onpause may not fire in all browsers
+                window.speechSynthesis.pause();
+                setPausedState();
+            }
+        });
+
+        if (ttsStopBtn) {
+            ttsStopBtn.addEventListener('click', function() {
+                window.speechSynthesis.cancel();
+                setIdleState();
+            });
+        }
+
+        // Stop reading when leaving the page
+        window.addEventListener('beforeunload', function() {
+            window.speechSynthesis.cancel();
+        });
+    } else if (ttsBtn) {
+        // Browser does not support speech synthesis
+        ttsBtn.disabled = true;
+        const ttsStatus = document.querySelector('.tts-status');
+        if (ttsStatus) ttsStatus.textContent = '当前浏览器不支持语音朗读';
+    }
+
     console.log('Xiaopei Pet Shop website loaded successfully! 🐾');
 });
 
