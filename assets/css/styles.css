@@ -605,6 +605,529 @@ body {
     padding: 2rem 0;
 }
 
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* ── Navbar: logo link & page-mode nav link ── */
+.logo-link {
+    text-decoration: none;
+}
+
+.nav-link-page {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.nav-link-page:hover,
+.nav-link-page.active {
+    color: var(--primary-color);
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+/* ── Latest Posts widget (homepage) ── */
+.latest-posts {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.latest-posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.latest-posts-header h2 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.latest-posts-more {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.latest-posts-more:hover {
+    color: white;
+}
+
+.latest-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.latest-post-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: white;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.latest-post-card:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+}
+
+.latest-post-emoji {
+    font-size: 2rem;
+}
+
+.latest-post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.latest-post-meta time {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.latest-post-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+}
+
+.latest-post-body p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* ── Post tags (shared) ── */
+.post-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.tag-pet {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: var(--primary-color);
+}
+
+.tag-category {
+    background-color: rgba(78, 205, 196, 0.15);
+    color: var(--secondary-color);
+}
+
+/* On white backgrounds: tags in post pages / archive */
+.page-content .tag-pet {
+    background-color: rgba(255, 107, 107, 0.12);
+    color: var(--primary-color);
+}
+
+.page-content .tag-category {
+    background-color: rgba(78, 205, 196, 0.12);
+    color: #2a9d8f;
+}
+
+/* ── Page content wrapper (non-SPA pages) ── */
+.page-content {
+    padding: 80px 0 50px;
+    min-height: 100vh;
+    background-color: var(--light-color);
+}
+
+.page-content .container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2.5rem;
+    align-items: start;
+    padding-top: 2rem;
+}
+
+.page-content .section-title {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.page-content .section-subtitle {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+/* ── Knowledge archive page ── */
+.post-filter-bar {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.filter-group-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 0.2rem;
+}
+
+.post-filter {
+    padding: 0.35rem 0.9rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 20px;
+    background: white;
+    color: #555;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.post-filter:hover,
+.post-filter.active {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.post-list {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.post-list-item {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.post-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.post-list-emoji {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+}
+
+.post-list-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.post-list-meta time {
+    font-size: 0.82rem;
+    color: #999;
+}
+
+.post-list-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-list-title a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.post-list-title a:hover {
+    color: var(--primary-color);
+}
+
+.post-list-excerpt {
+    font-size: 0.92rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+.post-read-more {
+    font-size: 0.88rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.post-read-more:hover {
+    color: #ff5252;
+}
+
+.no-posts {
+    grid-column: 1;
+    text-align: center;
+    color: #999;
+    padding: 3rem;
+}
+
+/* ── Post sidebar (archive + post pages) ── */
+.post-sidebar {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 90px;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.sidebar-card h3 {
+    font-size: 1rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--light-color);
+}
+
+.sidebar-post-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sidebar-post-link {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    text-decoration: none;
+    color: var(--dark-color);
+    transition: var(--transition);
+}
+
+.sidebar-post-link:hover {
+    color: var(--primary-color);
+}
+
+.sidebar-post-emoji {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.sidebar-post-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.sidebar-post-title {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.sidebar-post-info time {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.sidebar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sidebar-pet-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.sidebar-pet-tag:hover,
+.sidebar-pet-tag.active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: rgba(255, 107, 107, 0.08);
+}
+
+/* ── Individual post article ── */
+.post-article {
+    grid-column: 1;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.post-breadcrumb {
+    padding: 1rem 2rem 0;
+    font-size: 0.85rem;
+    color: #999;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.post-breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.post-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.post-header {
+    padding: 1.5rem 2rem 2rem;
+    border-bottom: 1px solid var(--light-color);
+}
+
+.post-header-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.post-big-emoji {
+    font-size: 3rem;
+}
+
+.post-meta-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+}
+
+.post-excerpt-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.post-body {
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.post-body h2 {
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--light-color);
+}
+
+.post-body h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin: 1.5rem 0 0.6rem;
+}
+
+.post-body p {
+    margin-bottom: 1rem;
+}
+
+.post-body ul,
+.post-body ol {
+    margin: 0.8rem 0 1rem 1.5rem;
+}
+
+.post-body li {
+    margin-bottom: 0.4rem;
+}
+
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+}
+
+.post-body th,
+.post-body td {
+    padding: 0.6rem 1rem;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.post-body th {
+    background-color: var(--light-color);
+    font-weight: 600;
+}
+
+.post-body hr {
+    border: none;
+    border-top: 1px solid var(--light-color);
+    margin: 2rem 0;
+}
+
+.post-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--light-color);
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -706,6 +1229,41 @@ body {
     .knowledge-tab {
         width: 100%;
         max-width: 300px;
+    }
+
+    /* Page content: single column on mobile */
+    .page-content .container {
+        grid-template-columns: 1fr;
+    }
+
+    .post-filter-bar {
+        grid-column: 1;
+    }
+
+    .post-list {
+        grid-column: 1;
+    }
+
+    .post-sidebar {
+        grid-column: 1;
+        position: static;
+    }
+
+    .post-article {
+        grid-column: 1;
+    }
+
+    .post-list-item {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .latest-posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .post-title {
+        font-size: 1.4rem;
     }
 }
 

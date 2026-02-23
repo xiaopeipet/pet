@@ -8,6 +8,17 @@ url: "https://pet.ioquan.com"
 markdown: kramdown
 highlighter: rouge
 
+# Post URL format: /knowledge/YYYY/MM/DD/slug/
+permalink: /knowledge/:year/:month/:day/:title/
+
+# Apply post layout to all _posts automatically
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+
 # Exclude files from the built site
 exclude:
   - Gemfile
@@ -16,6 +27,5 @@ exclude:
   - .github
   - vendor
 
-# Collections
 plugins:
   - jekyll-seo-tag

@@ -1,14 +1,24 @@
 <nav class="navbar">
     <div class="container">
         <div class="logo">
-            <h1>🐾 小佩宠物店</h1>
+            <a href="{{ '/' | relative_url }}" class="logo-link"><h1>🐾 小佩宠物店</h1></a>
         </div>
+        {% assign on_knowledge_page = page.url | slice: 0, 10 %}
         <ul class="nav-menu">
+            {% if page.is_spa %}
             <li><a href="#home" class="nav-link active">主页</a></li>
             <li><a href="#services" class="nav-link">宠物服务</a></li>
             <li><a href="#knowledge" class="nav-link">宠物知识</a></li>
             <li><a href="#staff" class="nav-link">小哥介绍</a></li>
             <li><a href="#booking" class="nav-link">预定服务</a></li>
+            {% else %}
+            <li><a href="{{ '/#home' | relative_url }}" class="nav-link">主页</a></li>
+            <li><a href="{{ '/#services' | relative_url }}" class="nav-link">宠物服务</a></li>
+            <li><a href="{{ '/#knowledge' | relative_url }}" class="nav-link">宠物知识</a></li>
+            <li><a href="{{ '/#staff' | relative_url }}" class="nav-link">小哥介绍</a></li>
+            <li><a href="{{ '/#booking' | relative_url }}" class="nav-link">预定服务</a></li>
+            {% endif %}
+            <li><a href="{{ '/knowledge/' | relative_url }}" class="nav-link-page{% if on_knowledge_page == '/knowledge' %} active{% endif %}">📰 知识文章</a></li>
         </ul>
         <div class="hamburger">
             <span></span>
