@@ -6,12 +6,15 @@
 }
 
 :root {
-    --primary-color: #ff6b6b;
-    --secondary-color: #4ecdc4;
-    --accent-color: #ffe66d;
-    --dark-color: #2d3436;
-    --light-color: #f8f9fa;
-    --text-color: #2d3436;
+    --primary-color: #FF8A39;
+    --secondary-color: #7FA987;
+    --secondary-dark: #5a8f6a;
+    --accent-color: #E7E85D;
+    --dark-color: #22272A;
+    --light-color: #F6F5F3;
+    --text-color: #22272A;
+    --hero-gradient-start: #6B3E2B;
+    --hero-gradient-end: #0E3B52;
     --border-radius: 12px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
@@ -71,7 +74,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
     color: var(--primary-color);
-    background-color: rgba(255, 107, 107, 0.1);
+    background-color: rgba(255, 138, 57, 0.1);
 }
 
 .hamburger {
@@ -115,7 +118,7 @@ body {
 
 /* Home Section */
 .home-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%);
     color: white;
 }
 
@@ -162,7 +165,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #ff5252;
+    background-color: #e67329;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -630,7 +633,7 @@ body {
 .nav-link-page:hover,
 .nav-link-page.active {
     color: var(--primary-color);
-    background-color: rgba(255, 107, 107, 0.1);
+    background-color: rgba(255, 138, 57, 0.1);
 }
 
 /* ── Latest Posts widget (homepage) ── */
@@ -727,24 +730,24 @@ body {
 }
 
 .tag-pet {
-    background-color: rgba(255, 107, 107, 0.15);
+    background-color: rgba(255, 138, 57, 0.15);
     color: var(--primary-color);
 }
 
 .tag-category {
-    background-color: rgba(78, 205, 196, 0.15);
+    background-color: rgba(127, 169, 135, 0.15);
     color: var(--secondary-color);
 }
 
 /* On white backgrounds: tags in post pages / archive */
 .page-content .tag-pet {
-    background-color: rgba(255, 107, 107, 0.12);
+    background-color: rgba(255, 138, 57, 0.12);
     color: var(--primary-color);
 }
 
 .page-content .tag-category {
-    background-color: rgba(78, 205, 196, 0.12);
-    color: #2a9d8f;
+    background-color: rgba(127, 169, 135, 0.12);
+    color: var(--secondary-dark);
 }
 
 /* ── Page content wrapper (non-SPA pages) ── */
@@ -893,7 +896,7 @@ body {
 }
 
 .post-read-more:hover {
-    color: #ff5252;
+    color: #e67329;
 }
 
 .no-posts {
@@ -992,7 +995,7 @@ body {
 .sidebar-pet-tag.active {
     border-color: var(--primary-color);
     color: var(--primary-color);
-    background-color: rgba(255, 107, 107, 0.08);
+    background-color: rgba(255, 138, 57, 0.08);
 }
 
 /* ── Individual post article ── */
