@@ -1,0 +1,14 @@
+# 宠物家族分组
+# 新增家族（如鸟类、兔类）：在此追加一个条目，同时在 pets.yml 中将对应品种的 group 设为此 id
+# 字段说明：
+#   id    — 唯一标识符，与 pets.yml 中的 group 字段对应
+#   label — 分组标题（展示在标签栏左侧）
+#   emoji — 分组图标
+
+- id: dog
+  label: 犬类
+  emoji: "🐕"
+
+- id: cat
+  label: 猫类
+  emoji: "🐈"

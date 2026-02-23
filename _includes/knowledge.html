@@ -3,14 +3,25 @@
         <h2 class="section-title">宠物知识</h2>
         <p class="section-subtitle">了解各类宠物的养护知识，让它们更健康快乐</p>
 
+        {% assign first_pet = site.data.pets | first %}
+
         <div class="knowledge-tabs">
-            {% for pet in site.data.pets %}
-            <button class="knowledge-tab{% if forloop.first %} active{% endif %}" data-tab="{{ pet.id }}">{{ pet.emoji }} {{ pet.label }}</button>
+            {% for group in site.data.pet_groups %}
+            <div class="tab-group">
+                <span class="tab-group-label">{{ group.emoji }} {{ group.label }}</span>
+                <div class="tab-group-buttons">
+                    {% for pet in site.data.pets %}
+                    {% if pet.group == group.id %}
+                    <button class="knowledge-tab{% if pet.id == first_pet.id %} active{% endif %}" data-tab="{{ pet.id }}">{{ pet.emoji }} {{ pet.label }}</button>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
             {% endfor %}
         </div>
 
         {% for pet in site.data.pets %}
-        <div id="{{ pet.id }}" class="knowledge-content{% if forloop.first %} active{% endif %}">
+        <div id="{{ pet.id }}" class="knowledge-content{% if pet.id == first_pet.id %} active{% endif %}">
             <div class="knowledge-grid">
                 {% assign cards = site.data.knowledge[pet.id] %}
                 {% for card in cards %}
