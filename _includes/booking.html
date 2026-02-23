@@ -1,0 +1,108 @@
+<section id="booking" class="section booking-section">
+    <div class="container">
+        <h2 class="section-title">预定服务</h2>
+        <p class="section-subtitle">填写以下信息，我们将尽快与您联系确认预约</p>
+        <div class="booking-container">
+            <form id="bookingForm" class="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ownerName">主人姓名 *</label>
+                        <input type="text" id="ownerName" name="ownerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">联系电话 *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="petName">宠物名称 *</label>
+                        <input type="text" id="petName" name="petName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="petType">宠物类型 *</label>
+                        <select id="petType" name="petType" required>
+                            <option value="">请选择</option>
+                            <option value="dog">狗狗</option>
+                            <option value="cat">猫咪</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service">服务类型 *</label>
+                        <select id="service" name="service" required>
+                            <option value="">请选择服务</option>
+                            <option value="grooming">宠物美容</option>
+                            <option value="health">健康检查</option>
+                            <option value="boarding">宠物寄养</option>
+                            <option value="training">宠物训练</option>
+                            <option value="photography">宠物摄影</option>
+                            <option value="consultation">咨询服务</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">预约日期 *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">预约时间 *</label>
+                    <select id="time" name="time" required>
+                        <option value="">请选择时间</option>
+                        <option value="09:00">09:00 - 10:00</option>
+                        <option value="10:00">10:00 - 11:00</option>
+                        <option value="11:00">11:00 - 12:00</option>
+                        <option value="14:00">14:00 - 15:00</option>
+                        <option value="15:00">15:00 - 16:00</option>
+                        <option value="16:00">16:00 - 17:00</option>
+                        <option value="17:00">17:00 - 18:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">备注信息</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="请填写特殊要求或其他信息..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">提交预约</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>联系我们</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>地址</strong>
+                        <p>北京市朝阳区宠物大街123号</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <strong>电话</strong>
+                        <p>010-12345678</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">⏰</span>
+                    <div>
+                        <strong>营业时间</strong>
+                        <p>周一至周日 9:00 - 18:00</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <strong>邮箱</strong>
+                        <p>contact@xiaopeipet.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

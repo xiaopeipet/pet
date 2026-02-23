@@ -1,0 +1,24 @@
+{% if site.posts.size > 0 %}
+<div class="latest-posts">
+    <div class="latest-posts-header">
+        <h2>📰 最新知识</h2>
+        <a href="{{ '/knowledge/' | relative_url }}" class="latest-posts-more">查看全部 →</a>
+    </div>
+    <div class="latest-posts-grid">
+        {% assign latest = site.posts | limit: 3 %}
+        {% for post in latest %}
+        <a href="{{ post.url | relative_url }}" class="latest-post-card">
+            <div class="latest-post-emoji">{{ post.emoji }}</div>
+            <div class="latest-post-body">
+                <div class="latest-post-meta">
+                    <span class="post-tag tag-pet">{{ post.pet_label }}</span>
+                    <time>{{ post.date | date: "%m月%d日" }}</time>
+                </div>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.excerpt | truncate: 60 }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

@@ -1,6 +1,14 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,visualstudiocode
 
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+
 ### macOS ###
 # General
 .DS_Store

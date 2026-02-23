@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    {% seo %}
+</head>
+<body>
+    {% include navbar.html %}
+
+    <main>
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+    {% include modal.html %}
+
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+</html>

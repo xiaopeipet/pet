@@ -1,0 +1,50 @@
+---
+layout: default
+title: 知识文章 - 小佩宠物店
+description: 每日更新的宠物养护知识，按品种分类整理
+---
+
+<div class="page-content">
+    <div class="container">
+        <h2 class="section-title">知识文章</h2>
+        <p class="section-subtitle">每日更新的宠物养护知识，按品种分类整理</p>
+
+        <!-- Filter bar -->
+        <div class="post-filter-bar">
+            <button class="post-filter active" data-filter="all">全部文章</button>
+            {% for group in site.data.pet_groups %}
+            <div class="filter-group">
+                <span class="filter-group-label">{{ group.emoji }} {{ group.label }}</span>
+                {% for pet in site.data.pets %}
+                {% if pet.group == group.id %}
+                <button class="post-filter" data-filter="{{ pet.id }}">{{ pet.emoji }} {{ pet.label }}</button>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Post list -->
+        <div class="post-list">
+            {% for post in site.posts %}
+            <article class="post-list-item" data-pet="{{ post.pet }}">
+                <div class="post-list-emoji">{{ post.emoji }}</div>
+                <div class="post-list-body">
+                    <div class="post-list-meta">
+                        <span class="post-tag tag-pet">{{ post.pet_label }}</span>
+                        <span class="post-tag tag-category">{{ post.category_label }}</span>
+                        <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+                    </div>
+                    <h3 class="post-list-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <p class="post-list-excerpt">{{ post.excerpt }}</p>
+                    <a href="{{ post.url | relative_url }}" class="post-read-more">阅读全文 →</a>
+                </div>
+            </article>
+            {% endfor %}
+
+            {% if site.posts.size == 0 %}
+            <p class="no-posts">暂无文章，敬请期待。</p>
+            {% endif %}
+        </div>
+    </div>
+</div>

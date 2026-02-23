@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<div class="page-content">
+    <div class="container">
+        <article class="post-article">
+            <header class="post-header">
+                <nav class="post-breadcrumb">
+                    <a href="{{ '/knowledge/' | relative_url }}">📰 知识文章</a>
+                    <span>›</span>
+                    <span>{{ page.pet_label }}</span>
+                </nav>
+                <div class="post-header-top">
+                    <span class="post-big-emoji">{{ page.emoji }}</span>
+                    <div class="post-meta-tags">
+                        <span class="post-tag tag-pet">{{ page.pet_label }}</span>
+                        <span class="post-tag tag-category">{{ page.category_label }}</span>
+                    </div>
+                </div>
+                <h1 class="post-title">{{ page.title }}</h1>
+                <p class="post-excerpt-text">{{ page.excerpt }}</p>
+                <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+                    🗓 {{ page.date | date: "%Y年%m月%d日" }}
+                </time>
+            </header>
+
+            <div class="post-body">
+                {{ content }}
+            </div>
+
+            <footer class="post-footer">
+                <a href="{{ '/knowledge/' | relative_url }}" class="btn btn-secondary">← 返回知识文章</a>
+            </footer>
+        </article>
+
+        <aside class="post-sidebar">
+            <div class="sidebar-card">
+                <h3>最新文章</h3>
+                <ul class="sidebar-post-list">
+                    {% assign recent = site.posts | limit: 6 %}
+                    {% for p in recent %}
+                    {% unless p.url == page.url %}
+                    <li>
+                        <a href="{{ p.url | relative_url }}" class="sidebar-post-link">
+                            <span class="sidebar-post-emoji">{{ p.emoji }}</span>
+                            <span class="sidebar-post-info">
+                                <span class="sidebar-post-title">{{ p.title }}</span>
+                                <time>{{ p.date | date: "%m月%d日" }}</time>
+                            </span>
+                        </a>
+                    </li>
+                    {% endunless %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="sidebar-card">
+                <h3>相关品种</h3>
+                <div class="sidebar-tags">
+                    {% for pet in site.data.pets %}
+                    {% if pet.group == page.pet_group %}
+                    <a href="{{ '/knowledge/' | relative_url }}?pet={{ pet.id }}" class="sidebar-pet-tag{% if pet.id == page.pet %} active{% endif %}">{{ pet.emoji }} {{ pet.label }}</a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
