@@ -279,6 +279,96 @@ body {
     margin-top: 1rem;
 }
 
+/* Knowledge Section */
+.knowledge-section {
+    background: linear-gradient(to bottom, var(--light-color) 0%, white 100%);
+}
+
+.knowledge-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.knowledge-tab {
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.knowledge-tab:hover,
+.knowledge-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.knowledge-content {
+    display: none;
+}
+
+.knowledge-content.active {
+    display: block;
+}
+
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.knowledge-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.knowledge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.knowledge-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.knowledge-card h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.knowledge-list {
+    list-style: none;
+    padding: 0;
+}
+
+.knowledge-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.knowledge-list li::before {
+    content: "🐾";
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+    top: 0.5rem;
+}
+
 /* Staff Section */
 .staff-section {
     background: linear-gradient(to bottom, white 0%, var(--light-color) 100%);
@@ -574,8 +664,19 @@ body {
 
     .features,
     .services-grid,
-    .staff-grid {
+    .staff-grid,
+    .knowledge-grid {
         grid-template-columns: 1fr;
+    }
+
+    .knowledge-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .knowledge-tab {
+        width: 100%;
+        max-width: 300px;
     }
 }
 

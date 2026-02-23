@@ -142,8 +142,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
+    // Knowledge tab switching
+    document.querySelectorAll('.knowledge-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.knowledge-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.knowledge-content').forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            const targetTab = this.getAttribute('data-tab');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+
     // Observe all cards
-    document.querySelectorAll('.service-card, .staff-card, .feature-card').forEach(card => {
+    document.querySelectorAll('.service-card, .staff-card, .feature-card, .knowledge-card').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
