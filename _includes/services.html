@@ -1,0 +1,21 @@
+<section id="services" class="section services-section">
+    <div class="container">
+        <h2 class="section-title">宠物服务</h2>
+        <p class="section-subtitle">我们提供全方位的宠物护理服务</p>
+        <div class="services-grid">
+            {% for service in site.data.services %}
+            <div class="service-card">
+                <div class="service-icon">{{ service.icon }}</div>
+                <h3>{{ service.name }}</h3>
+                <p>{{ service.desc }}</p>
+                <ul class="service-list">
+                    {% for item in service.items %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                <div class="service-price">{{ service.price }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

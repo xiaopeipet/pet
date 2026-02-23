@@ -1,0 +1,21 @@
+<section id="staff" class="section staff-section">
+    <div class="container">
+        <h2 class="section-title">小哥介绍</h2>
+        <p class="section-subtitle">认识我们专业的宠物护理团队</p>
+        <div class="staff-grid">
+            {% for member in site.data.staff %}
+            <div class="staff-card">
+                <div class="staff-avatar">{{ member.avatar }}</div>
+                <h3>{{ member.name }}</h3>
+                <p class="staff-title">{{ member.title }}</p>
+                <p class="staff-bio">{{ member.bio }}</p>
+                <div class="staff-skills">
+                    {% for skill in member.skills %}
+                    <span class="skill-tag">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

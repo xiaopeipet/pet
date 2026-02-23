@@ -1,0 +1,21 @@
+title: 小佩宠物店
+description: 专业的宠物护理服务，让您的宠物享受最好的照顾
+lang: zh-CN
+baseurl: ""
+url: "https://pet.ioquan.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from the built site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .github
+  - vendor
+
+# Collections
+plugins:
+  - jekyll-seo-tag
