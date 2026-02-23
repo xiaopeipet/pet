@@ -1,0 +1,47 @@
+---
+layout: none
+permalink: /llms.txt
+---
+# 小佩宠物店
+
+> 小佩宠物店（Xiaopei Pet Shop）是一家专业的宠物护理服务机构，位于中国，官网为 {{ site.url }}。提供宠物美容、健康检查、宠物寄养、宠物训练、宠物用品销售及宠物摄影等一站式服务，同时提供丰富的犬猫养护知识。
+
+## 服务项目
+{% for service in site.data.services %}
+- **{{ service.name }}**（{{ service.price }}）：{{ service.desc }}。包含：{% for item in service.items %}{{ item }}{% unless forloop.last %}、{% endunless %}{% endfor %}。
+{% endfor %}
+
+## 专业团队
+{% for member in site.data.staff %}
+- **{{ member.name }}**（{{ member.title }}）：{{ member.bio }}擅长：{% for skill in member.skills %}{{ skill }}{% unless forloop.last %}、{% endunless %}{% endfor %}。
+{% endfor %}
+
+## 宠物养护知识库
+
+### 犬类养护
+{% for pet in site.data.pets %}{% if pet.group == "dog" %}
+#### {{ pet.emoji }} {{ pet.label }}（[详情]({{ site.url }}/#knowledge)）
+{% assign knowledge = site.data.knowledge[pet.id] %}{% if knowledge %}{% for card in knowledge %}
+- **{{ card.title }}**：{% for tip in card.tips %}{{ tip }}{% unless forloop.last %} / {% endunless %}{% endfor %}
+{% endfor %}{% endif %}{% endif %}{% endfor %}
+
+### 猫类养护
+{% for pet in site.data.pets %}{% if pet.group == "cat" %}
+#### {{ pet.emoji }} {{ pet.label }}（[详情]({{ site.url }}/#knowledge)）
+{% assign knowledge = site.data.knowledge[pet.id] %}{% if knowledge %}{% for card in knowledge %}
+- **{{ card.title }}**：{% for tip in card.tips %}{{ tip }}{% unless forloop.last %} / {% endunless %}{% endfor %}
+{% endfor %}{% endif %}{% endif %}{% endfor %}
+
+## 知识文章
+{% for post in site.posts %}
+- [{{ post.title }}]({{ site.url }}{{ post.url }})：{{ post.excerpt | strip_newlines }}
+{% endfor %}
+
+## 在线预约
+
+- [立即预约]({{ site.url }}/#booking)：可在线预约宠物美容、健康检查、寄养、训练等服务。
+
+## 更多信息
+
+- [官方网站首页]({{ site.url }}/)
+- [知识文章列表]({{ site.url }}/knowledge/)
