@@ -1,4 +1,13 @@
-- icon: "🍖"
+# 狗狗养护知识
+# 新增知识卡片：在此文件末尾追加一个条目
+# 字段说明：
+#   category — 知识分类（diet / exercise / grooming / health / environment / behavior）
+#   icon     — 展示图标（emoji）
+#   title    — 卡片标题
+#   tips     — 知识点列表（每行一条）
+
+- category: diet
+  icon: "🍖"
   title: 饮食与营养
   tips:
     - 选择适合年龄段的专业狗粮（幼犬粮/成犬粮/老年粮）
@@ -7,7 +16,8 @@
     - 避免喂食葡萄、洋葱、巧克力等有毒食物
     - 零食不超过每日热量摄入的10%
 
-- icon: "🏃"
+- category: exercise
+  icon: "🏃"
   title: 运动与锻炼
   tips:
     - 每天保证30分钟至2小时的户外运动
@@ -16,7 +26,8 @@
     - 避免在高温时段户外运动，防止中暑
     - 幼犬运动量不宜过大，保护关节发育
 
-- icon: "🛁"
+- category: grooming
+  icon: "🛁"
   title: 清洁与美容
   tips:
     - 短毛犬每月洗澡1～2次，长毛犬每2周一次
@@ -25,7 +36,8 @@
     - 每周检查并清洁耳朵，预防耳道感染
     - 定期刷牙，预防牙结石和口臭
 
-- icon: "💉"
+- category: health
+  icon: "💉"
   title: 健康与医疗
   tips:
     - 按时接种狂犬病、五联疫苗等必要疫苗
@@ -34,7 +46,8 @@
     - 关注异常症状：食欲不振、精神萎靡、频繁抓挠
     - 建议在3～6月龄进行绝育，降低疾病风险
 
-- icon: "🏠"
+- category: environment
+  icon: "🏠"
   title: 居住环境
   tips:
     - 提供舒适、固定的狗窝或睡眠区域
@@ -43,7 +56,8 @@
     - 为狗狗准备专属玩具缓解无聊和焦虑
     - 夏季注意防暑降温，冬季做好保暖
 
-- icon: "🎓"
+- category: behavior
+  icon: "🎓"
   title: 训练与行为
   tips:
     - 幼犬期（2～6月龄）是训练黄金期

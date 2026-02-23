@@ -1,0 +1,14 @@
+# 宠物类型注册表
+# 新增宠物类型：在此追加一个条目，并在 _data/knowledge/ 下创建同名 YAML 文件
+# 字段说明：
+#   id     — 唯一标识符，对应 _data/knowledge/<id>.yml 文件名，以及页面锚点 id
+#   label  — 标签页显示文字
+#   emoji  — 标签页图标
+
+- id: dog
+  label: 狗狗养护
+  emoji: "🐕"
+
+- id: cat
+  label: 猫猫养护
+  emoji: "🐈"

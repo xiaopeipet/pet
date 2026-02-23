@@ -1,16 +1,19 @@
 <section id="knowledge" class="section knowledge-section">
     <div class="container">
         <h2 class="section-title">宠物知识</h2>
-        <p class="section-subtitle">了解狗狗与猫猫的养护知识，让它们更健康快乐</p>
+        <p class="section-subtitle">了解各类宠物的养护知识，让它们更健康快乐</p>
 
         <div class="knowledge-tabs">
-            <button class="knowledge-tab active" data-tab="dog">🐕 狗狗养护</button>
-            <button class="knowledge-tab" data-tab="cat">🐈 猫猫养护</button>
+            {% for pet in site.data.pets %}
+            <button class="knowledge-tab{% if forloop.first %} active{% endif %}" data-tab="{{ pet.id }}">{{ pet.emoji }} {{ pet.label }}</button>
+            {% endfor %}
         </div>
 
-        <div id="dog" class="knowledge-content active">
+        {% for pet in site.data.pets %}
+        <div id="{{ pet.id }}" class="knowledge-content{% if forloop.first %} active{% endif %}">
             <div class="knowledge-grid">
-                {% for card in site.data.dog_knowledge %}
+                {% assign cards = site.data.knowledge[pet.id] %}
+                {% for card in cards %}
                 <div class="knowledge-card">
                     <div class="knowledge-icon">{{ card.icon }}</div>
                     <h3>{{ card.title }}</h3>
@@ -23,21 +26,6 @@
                 {% endfor %}
             </div>
         </div>
-
-        <div id="cat" class="knowledge-content">
-            <div class="knowledge-grid">
-                {% for card in site.data.cat_knowledge %}
-                <div class="knowledge-card">
-                    <div class="knowledge-icon">{{ card.icon }}</div>
-                    <h3>{{ card.title }}</h3>
-                    <ul class="knowledge-list">
-                        {% for tip in card.tips %}
-                        <li>{{ tip }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
